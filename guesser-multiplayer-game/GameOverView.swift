@@ -31,7 +31,7 @@ struct GameOverView: View {
                     // TODO: Back to menu
                 } label: {
                     Text("Menu")
-                        .foregroundColor(.green)
+                        .foregroundColor(.yellow)
                         .font(.largeTitle)
                         .brightness(-0.4)
                         .bold()
@@ -41,11 +41,11 @@ struct GameOverView: View {
                 .padding(.horizontal, 100)
                 .background(
                     Capsule(style: .circular)
-                        .fill(Color(.yellow))
+                        .fill(Color(.purple))
                     )
                 Spacer()
             }
-            .background(.red)
+            .background(.pink)
             .ignoresSafeArea()
                 
         }

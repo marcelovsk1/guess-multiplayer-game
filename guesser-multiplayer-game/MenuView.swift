@@ -8,11 +8,50 @@
 import SwiftUI
 
 struct MenuView: View {
+    @ObservedObject var matchManager: MatchManager
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            
+            Image("logo3")
+                .resizable()
+                .scaledToFit()
+                .padding(30)
+            
+            Spacer()
+            
+            Button {
+                // TODO: Start Matchmaking menu
+            } label: {
+                Text("START")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(.white)
+            }
+            .disabled(matchManager.authenticaitonState !=
+                .authenticated || matchManager.inGame)
+            .padding(.vertical, 20)
+            .padding(.horizontal, 100)
+            .background(
+                Capsule(style: .circular)
+                    .fill(matchManager.authenticaitonState !=
+                        .authenticated || matchManager.inGame
+                          ? .gray : Color(.purple))
+            )
+            Text(matchManager.authenticaitonState.rawValue)
+                .font(.headline.weight(.semibold))
+                .foregroundColor(.black)
+                .padding()
+            
+            Spacer()
+        }
+        .background(.yellow)
+        .ignoresSafeArea()
+            
     }
 }
 
 #Preview {
-    MenuView()
+    MenuView(matchManager: MatchManager())
 }
