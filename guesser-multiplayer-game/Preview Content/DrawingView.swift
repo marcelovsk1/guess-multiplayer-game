@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import PencilKit
 
-struct DrawingView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct DrawingView: UIViewRepresentable {
+    var canvasView = PKCanvasView()
+    
+    @ObservedObject var matchManager: MatchManager
+    @Binding var eraserEnabled: Bool
 }
-
+    
+@State static var eraser = false
 #Preview {
-    DrawingView()
+    DrawingView(matchManager: MatchManager(), eraserEnabled: <#Binding<Bool>#>)
 }

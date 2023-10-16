@@ -8,11 +8,58 @@
 import SwiftUI
 
 struct GameView: View {
+    @ObservedObject var matchManager: MatchManager
+    @State var drawingGuess = ""
+    @State var eraserEnabled = ""
+    
+    func makeGuess() {
+        //TODO: Submit the guess
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            GeometryReader { _ in
+                Image(matchManager.currentlyDrawing ? "drawBg3" :
+                "drawBg2")
+                .resizable()
+                .scaledToFit()
+                .ignoresSafeArea()
+                .scaleEffect(1.1)
+                
+                VStack {
+                    topBar
+                    
+                    ZStack {
+                        
+                    }
+                }
+                
+            }
+        }
+    }
+    var topBar: some View {
+        ZStack {
+            HStack {
+                Button {
+                    // TODO: disconnect from the game
+                } label: {
+                    Image(systemName: "arrowshape.turn.up.left.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                }
+                Spacer()
+                
+                Label("\(matchManager.remainingTime)",
+                    systemImage: "clock.fill")
+                    .bold()
+                    .font(.title2)
+                    .foregroundColor(.white)
+            }
+        }
+        .padding(.vertical, 15)
     }
 }
 
 #Preview {
-    GameView()
+    GameView(matchManager: MatchManager())
 }
