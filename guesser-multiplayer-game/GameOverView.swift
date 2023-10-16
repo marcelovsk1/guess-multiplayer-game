@@ -8,11 +8,49 @@
 import SwiftUI
 
 struct GameOverView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    @ObservedObject var matchManager: MatchManager
+        
+        var body: some View {
+            VStack {
+                Spacer()
+                
+                Image("gameOver")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.horizontal, 70)
+                    .padding(.vertical)
+                
+                Text("Score: \(matchManager.score)")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(.yellow)
+                
+                Spacer()
+                
+                Button {
+                    // TODO: Back to menu
+                } label: {
+                    Text("Menu")
+                        .foregroundColor(.green)
+                        .font(.largeTitle)
+                        .brightness(-0.4)
+                        .bold()
+                
+                }
+                .padding(.vertical, 20)
+                .padding(.horizontal, 100)
+                .background(
+                    Capsule(style: .circular)
+                        .fill(Color(.yellow))
+                    )
+                Spacer()
+            }
+            .background(.red)
+            .ignoresSafeArea()
+                
+        }
     }
-}
 
 #Preview {
-    GameOverView()
+    GameOverView(matchManager: MatchManager())
 }
