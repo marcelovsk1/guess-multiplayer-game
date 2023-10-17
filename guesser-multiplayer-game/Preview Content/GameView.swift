@@ -67,6 +67,7 @@ struct GameView: View {
                 promptGroup
             }
         }
+//        .ignoresSafeArea(.container)
         
     }
     var topBar: some View {
@@ -140,24 +141,51 @@ struct GameView: View {
                     .padding()
                     .foregroundColor(.purple)
                 
+                
             } else {
                 HStack {
+                    Spacer()
                     Label("GUESS THE DRAWING!:", systemImage:
-                            "exclamationmark.bubble.fill")
+                        "exclamationmark.bubble.fill")
                     .font(.title2)
                     .bold()
-                    .foregroundColor(.purple)
-                    
+                    .foregroundColor(.yellow)
                     Spacer()
                 }
-                Button {
-                    makeGuess()
-                } label: {
+                HStack {
+                    TextField("Type your guess", text: $drawingGuess)
+                        .padding()
+                        .background(
+                            Capsule(style: .circular)
+                                .fill(.white)
+                        )
+                        .onSubmit(makeGuess)
+                    
+                    Button {
+                        makeGuess()
+                    } label: {
+                        Image(systemName: "chevron.right.circle.fill")
+                            .renderingMode(.original)
+                            .foregroundColor(.yellow)
+                            .font(.system(size: 50))
+                        
+                    }
                     
                 }
                 
             }
         }
+//        .frame(maxWidth: .infinity)
+//        .padding([.horizontal], 30)
+//        .padding(.vertical)
+//        .background(
+//            (matchManager.currentlyDrawing ?
+//             Color(red: 0243, green: 0773, blue: 0.745) :
+//             Color("primaryYellow")
+//            )
+//            .opacity(0.5)
+//            .brightness(-0.2)
+//        )
     }
 }
 
