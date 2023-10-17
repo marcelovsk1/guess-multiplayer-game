@@ -11,7 +11,7 @@ import PencilKit
 
 class MatchManager: ObservableObject {
     @Published var inGame = false
-    @Published var inGameOver = false
+    @Published var inGameOver = true
     @Published var authenticaitonState = PlayerAuthState.authenticating
     
     @Published var currentlyDrawing = true
