@@ -22,12 +22,12 @@ struct MenuView: View {
             Spacer()
             
             Button {
-                // TODO: Start Matchmaking menu
+                matchManager.startMatchMaking()
             } label: {
                 Text("START")
-                    .font(.largeTitle)
+                    .font(Font.custom("Zuka Doodle", size: 55.0))
                     .bold()
-                    .foregroundColor(.white)
+                    .foregroundColor(.purple)
             }
             .disabled(matchManager.authenticaitonState !=
                 .authenticated || matchManager.inGame)
@@ -37,7 +37,7 @@ struct MenuView: View {
                 Capsule(style: .circular)
                     .fill(matchManager.authenticaitonState !=
                         .authenticated || matchManager.inGame
-                          ? .gray : Color(.purple))
+                          ? .yellow : Color(.purple))
             )
             Text(matchManager.authenticaitonState.rawValue)
                 .font(.headline.weight(.semibold))

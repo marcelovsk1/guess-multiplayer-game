@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BC364892ADF0E4A001D6212 /* MatchManager+GKMatchMakerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC364882ADF0E4A001D6212 /* MatchManager+GKMatchMakerViewControllerDelegate.swift */; };
+		0BC3648B2ADF13B0001D6212 /* MatchManager+GKMatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC3648A2ADF13B0001D6212 /* MatchManager+GKMatchDelegate.swift */; };
+		0BC3648E2ADF5290001D6212 /* LuckiestGuy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BC3648D2ADF5290001D6212 /* LuckiestGuy-Regular.ttf */; };
+		0BC364902ADF52A4001D6212 /* Zuka Doodle.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BC3648F2ADF52A4001D6212 /* Zuka Doodle.ttf */; };
 		0BC9CDA72ADCE5A9009A52B5 /* guesser_multiplayer_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CDA62ADCE5A9009A52B5 /* guesser_multiplayer_gameApp.swift */; };
 		0BC9CDA92ADCE5A9009A52B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CDA82ADCE5A9009A52B5 /* ContentView.swift */; };
 		0BC9CDAB2ADCE5B0009A52B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BC9CDAA2ADCE5B0009A52B5 /* Assets.xcassets */; };
@@ -21,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BC364882ADF0E4A001D6212 /* MatchManager+GKMatchMakerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchMakerViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		0BC3648A2ADF13B0001D6212 /* MatchManager+GKMatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchDelegate.swift"; sourceTree = "<group>"; };
+		0BC3648D2ADF5290001D6212 /* LuckiestGuy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LuckiestGuy-Regular.ttf"; path = "../../../../../Downloads/Bricolage_Grotesque,Luckiest_Guy,REM,Roboto/Luckiest_Guy/LuckiestGuy-Regular.ttf"; sourceTree = "<group>"; };
+		0BC3648F2ADF52A4001D6212 /* Zuka Doodle.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Zuka Doodle.ttf"; path = "../../../../../Downloads/zuka_doodle/Zuka Doodle.ttf"; sourceTree = "<group>"; };
+		0BC364912ADF5309001D6212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BC9CDA32ADCE5A9009A52B5 /* guesser-multiplayer-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "guesser-multiplayer-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BC9CDA62ADCE5A9009A52B5 /* guesser_multiplayer_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guesser_multiplayer_gameApp.swift; sourceTree = "<group>"; };
 		0BC9CDA82ADCE5A9009A52B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BC3648C2ADF5060001D6212 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0BC3648D2ADF5290001D6212 /* LuckiestGuy-Regular.ttf */,
+				0BC3648F2ADF52A4001D6212 /* Zuka Doodle.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		0BC9CD9A2ADCE5A8009A52B5 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +83,8 @@
 		0BC9CDA52ADCE5A9009A52B5 /* guesser-multiplayer-game */ = {
 			isa = PBXGroup;
 			children = (
+				0BC364912ADF5309001D6212 /* Info.plist */,
+				0BC3648C2ADF5060001D6212 /* Resources */,
 				0BC9CDA62ADCE5A9009A52B5 /* guesser_multiplayer_gameApp.swift */,
 				0BC9CDA82ADCE5A9009A52B5 /* ContentView.swift */,
 				0BC9CDAA2ADCE5B0009A52B5 /* Assets.xcassets */,
@@ -79,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				0BC9CDB42ADCEB65009A52B5 /* MenuView.swift */,
+				0BC3648A2ADF13B0001D6212 /* MatchManager+GKMatchDelegate.swift */,
+				0BC364882ADF0E4A001D6212 /* MatchManager+GKMatchMakerViewControllerDelegate.swift */,
 				0BC9CDBD2ADCFA4E009A52B5 /* GameOverView.swift */,
 				0BC9CDB62ADCEB7A009A52B5 /* MatchManager.swift */,
 				0BC9CDB92ADCEBA2009A52B5 /* Misc.swift */,
@@ -155,8 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC9CDAE2ADCE5B0009A52B5 /* Preview Assets.xcassets in Resources */,
+				0BC364902ADF52A4001D6212 /* Zuka Doodle.ttf in Resources */,
 				0BC9CDAB2ADCE5B0009A52B5 /* Assets.xcassets in Resources */,
 				0BC9CDC22ADD550C009A52B5 /* Doodles.ttf in Resources */,
+				0BC3648E2ADF5290001D6212 /* LuckiestGuy-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,9 +193,11 @@
 			files = (
 				0BC9CDA92ADCE5A9009A52B5 /* ContentView.swift in Sources */,
 				0BC9CDB72ADCEB7A009A52B5 /* MatchManager.swift in Sources */,
+				0BC3648B2ADF13B0001D6212 /* MatchManager+GKMatchDelegate.swift in Sources */,
 				0BC9CDB52ADCEB65009A52B5 /* MenuView.swift in Sources */,
 				0BC9CDE72ADD698C009A52B5 /* DrawingView.swift in Sources */,
 				0BC9CDBA2ADCEBA2009A52B5 /* Misc.swift in Sources */,
+				0BC364892ADF0E4A001D6212 /* MatchManager+GKMatchMakerViewControllerDelegate.swift in Sources */,
 				0BC9CDBE2ADCFA4E009A52B5 /* GameOverView.swift in Sources */,
 				0BC9CDA72ADCE5A9009A52B5 /* guesser_multiplayer_gameApp.swift in Sources */,
 				0BC9CDE52ADD5BEE009A52B5 /* GameView.swift in Sources */,
@@ -311,6 +337,7 @@
 				DEVELOPMENT_TEAM = 972SSN6428;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "guesser-multiplayer-game/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -340,6 +367,7 @@
 				DEVELOPMENT_TEAM = 972SSN6428;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "guesser-multiplayer-game/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

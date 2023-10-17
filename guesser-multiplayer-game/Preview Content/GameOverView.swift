@@ -21,7 +21,7 @@ struct GameOverView: View {
                     .padding(.vertical)
                 
                 Text("Score: \(matchManager.score)")
-                    .font(.largeTitle)
+                    .font(Font.custom("Zuka Doodle", size: 55.0))
                     .bold()
                     .foregroundColor(.yellow)
                 
