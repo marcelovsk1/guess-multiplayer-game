@@ -16,12 +16,17 @@ class MatchManager: NSObject, ObservableObject {
     @Published var inGameOver = false
     @Published var authenticaitonState = PlayerAuthState.authenticating
     
-    @Published var currentlyDrawing = true
-    @Published var drawPrompt = "Dishwasher"
+    @Published var currentlyDrawing = false
+    @Published var drawPrompt = "Camera"
     @Published var pastGuesses = [PastGuess]()
     
     @Published var score = 0
-    @Published var remainingTime = maxTimeRemaining
+    @Published var remainingTime = maxTimeRemaining {
+        willSet {
+            if isTimeKepper {sendString("timer:\(newValue)")}
+            if newValue < 0 { gameOver() }
+        }
+    }
     @Published var lastReceivedDrawing = PKDrawing()
     @Published var isTimeKepper = false
     
@@ -71,6 +76,7 @@ class MatchManager: NSObject, ObservableObject {
         rootViewController?.present(matchmakingVC!, animated: true)
     }
     
+   
     func startGame(newMatch: GKMatch) {
         match = newMatch
         match?.delegate = self
@@ -78,6 +84,34 @@ class MatchManager: NSObject, ObservableObject {
         drawPrompt = everydayObjects.randomElement()!
         
         sendString("began:\(playerUUIDKey)")
+    }
+    
+    func gameOver() {
+        inGameOver = true
+        match?.disconnect()
+    }
+    
+    func swapRoles() {
+        score += 1
+        currentlyDrawing = !currentlyDrawing
+        drawPrompt = everydayObjects.randomElement()!
+    }
+    
+    func restGame() {
+        DispatchQueue.main.async { [self] in
+            inGameOver = false
+            inGame = false
+            drawPrompt = ""
+            score = 0
+            remainingTime = maxTimeRemaining
+            lastReceivedDrawing = PKDrawing()
+            
+        }
+        isTimeKepper = true
+        match?.delegate = nil
+        otherPlayer = nil
+        pastGuesses.removeAll()
+        playerUUIDKey = UUID ().uuidString
     }
     
     func receivedString(_ message: String) {
@@ -95,14 +129,39 @@ class MatchManager: NSObject, ObservableObject {
             }
             currentlyDrawing = playerUUIDKey < parameter
             inGame = true
-            isTimeKepper = true
+            isTimeKepper = currentlyDrawing
             
             if isTimeKepper {
                 countdownTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
             }
+        case "guess":
+            var guessCorrect = false
+            
+            if parameter.lowercased() == drawPrompt {
+                sendString("correct:\(parameter)")
+                swapRoles()
+                guessCorrect = true
+                
+            } else {
+                sendString("incorrect:\(ParameterEvent())")
+            }
+            appendPastGuess(guess: parameter, correct: guessCorrect)
+        case "correct":
+            swapRoles()
+            appendPastGuess(guess: parameter, correct: true)
+        case "incorrect":
+            appendPastGuess(guess: parameter, correct: false)
+        case "timer":
+            remainingTime = Int(parameter) ?? 0
         default:
             break
         }
+    }
+    func appendPastGuess(guess: String, correct: Bool) {
+        pastGuesses.append(PastGuess(
+            message: "\(guess)\(correct ? " was correct!" : "")"
+            , correct: correct
+            ))
     }
 }

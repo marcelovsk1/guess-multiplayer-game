@@ -21,18 +21,21 @@ struct GameOverView: View {
                     .padding(.vertical)
                 
                 Text("Score: \(matchManager.score)")
-                    .font(Font.custom("Zuka Doodle", size: 55.0))
+//                    .font(Font.custom("Doodle", size: 55.0))
+//                    .font(Font.custom("Doodles", size: 50.0))
+                    .font(.title)
                     .bold()
                     .foregroundColor(.yellow)
                 
                 Spacer()
                 
                 Button {
-                    // TODO: Back to menu
+                    matchManager.match?.disconnect()
+                    matchManager.restGame()
                 } label: {
                     Text("Menu")
-                        .foregroundColor(.yellow)
-                        .font(.largeTitle)
+                        .foregroundColor(.red)
+                        .font(Font.custom("Zuka Doodle", size: 55.0))
                         .brightness(-0.4)
                         .bold()
                 
@@ -41,7 +44,7 @@ struct GameOverView: View {
                 .padding(.horizontal, 100)
                 .background(
                     Capsule(style: .circular)
-                        .fill(Color(.purple))
+                        .fill(Color(.yellow))
                     )
                 Spacer()
             }

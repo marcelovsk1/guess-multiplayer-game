@@ -15,7 +15,9 @@ struct GameView: View {
     @State var eraserEnabled = false
     
     func makeGuess() {
-        //TODO: Submit the guess
+        guard drawingGuess != "" else { return }
+        matchManager.sendString("guess:\(drawingGuess)")
+        drawingGuess = ""
     }
     
     var body: some View {
@@ -94,6 +96,10 @@ struct GameView: View {
                 .font(.title2)
                 .foregroundColor(.purple)
             }
+            Text("Score: \(matchManager.score)")
+                .bold()
+                .font(.title)
+                .foregroundColor(.purple)
         }
         .padding(.vertical, 15)
     }
@@ -155,7 +161,7 @@ struct GameView: View {
                         "exclamationmark.bubble.fill")
                     .font(.title2)
                     .bold()
-                    .foregroundColor(.yellow)
+                    .foregroundColor(.purple)
                     Spacer()
                 }
                 HStack {
@@ -164,6 +170,7 @@ struct GameView: View {
                         .background(
                             Capsule(style: .circular)
                                 .fill(.white)
+                    
                         )
                         .onSubmit(makeGuess)
                     
@@ -181,9 +188,9 @@ struct GameView: View {
                 
             }
         }
-//        .frame(maxWidth: .infinity)
-//        .padding([.horizontal], 30)
-//        .padding(.vertical)
+        .frame(maxWidth: .infinity)
+        .padding([.horizontal], 30)
+        .padding(.vertical)
 //        .background(
 //            (matchManager.currentlyDrawing ?
 //             Color(red: 0243, green: 0773, blue: 0.745) :

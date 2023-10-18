@@ -1,18 +1,27 @@
+////
+////  SwiftUIView.swift
+////  guesser-multiplayer-game
+////
+////  Created by Marcelo Amaral Alves on 2023-10-18.
+////
 //
-//  SwiftUIView.swift
-//  guesser-multiplayer-game
+//import SwiftUI
 //
-//  Created by Marcelo Amaral Alves on 2023-10-18.
-//
-
-import SwiftUI
-
-struct SwiftUIView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    SwiftUIView()
-}
+//struct FontePersonalizadaApp: App {
+//    
+//    init() {
+//        for family in UIFont.familyNames {
+//            print("family")
+//            for font in UIFont.fontNames(forFamilyName: family) {
+//                print(" \(font)")
+//            }
+//        }
+//    }
+//    
+//    var body: some Scene {
+//        WindowGroup {
+//            ContentView()
+//        }
+//    }
+//}
+///
